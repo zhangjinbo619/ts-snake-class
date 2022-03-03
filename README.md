@@ -1,0 +1,1 @@
+# ts-snake-class
