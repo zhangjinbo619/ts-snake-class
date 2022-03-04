@@ -113,7 +113,7 @@ class GameControl {
     } catch (error) {
       //ts 异常类型收敛处理
       if (error instanceof Error) {
-        console.log(error.message);
+        alert(error.message);
       }
       this.isLive = false;
     }
