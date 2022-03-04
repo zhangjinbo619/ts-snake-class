@@ -42,7 +42,7 @@ class Snake {
         this.head.style.left = val + "px";
     }
     throwGameOver(): never {
-        throw new Error("game over,snake is dead");
+        throw new Error("Game Over,Snake is Dead");
     }
     //获取蛇X轴坐标 (其实就是蛇头的坐标)
     get X() {

@@ -12,6 +12,7 @@ declare class GameControl {
     get direction(): string;
     checkDirection(next: string): boolean;
     init(): void;
+    touchHandler: (dire: string) => void;
     keydownHandler: (event: KeyboardEvent) => void;
     run: () => void;
     checkEat(X: number, Y: number): void;

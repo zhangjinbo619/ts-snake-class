@@ -1,6 +1,7 @@
 import Snake from "./Snake";
 import Food from "./Food";
 import SourcePanel from "./SourcePanel";
+import Gesture from "../common/Gesture";
 enum DIRECTION {
   ArrowUp = "ArrowUp",
   Up = "Up",
@@ -54,8 +55,12 @@ class GameControl {
   init() {
     //监听上下左右事件
     document.addEventListener("keydown", this.keydownHandler);
+    //移动端监听事件
+    new Gesture('main', this.touchHandler)
   }
-
+  touchHandler = (dire: string) => {
+    this.direction = dire
+  }
   keydownHandler = (event: KeyboardEvent) => {
     const { key } = event;
     this.direction = key;
@@ -105,7 +110,7 @@ class GameControl {
     } catch (error) {
       //ts 异常类型收敛处理
       if (error instanceof Error) {
-        console.log(error.message);
+        alert(error.message);
       }
       this.isLive = false;
     }
