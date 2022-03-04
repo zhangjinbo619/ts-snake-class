@@ -8,9 +8,10 @@ enum DIRECTION {
 }
 class Gesture {
     element: HTMLElement
-    startX: number = 0
-    startY: number = 0
+    prevX: number = 0
+    prevY: number = 0
     callback: callbackFn
+    touchOffset:number = 3 //触摸多少距离有效
     constructor(id: string, cb: callbackFn) {
         const el = document.getElementById(id);
         if (!el) throw Error('element not found');
@@ -24,8 +25,8 @@ class Gesture {
     }
     touchStart = (e: TouchEvent) => {
         e.preventDefault();
-        this.startX = e.touches[0].pageX;
-        this.startY = e.touches[0].pageY;
+        this.prevX = e.touches[0].pageX;
+        this.prevY = e.touches[0].pageY;
     }
 
     touchMove = (e: TouchEvent) => {
@@ -33,8 +34,13 @@ class Gesture {
         e.preventDefault();
         moveEndX = e.changedTouches[0].pageX;
         moveEndY = e.changedTouches[0].pageY;
-        X = moveEndX - this.startX;
-        Y = moveEndY - this.startY;
+        X = moveEndX - this.prevX;
+        Y = moveEndY - this.prevY;
+        this.prevX = moveEndX;
+        this.prevY = moveEndY;
+        if (Math.abs(X) < this.touchOffset && Math.abs(Y) < this.touchOffset) return;
+        console.log(Math.abs(X),Math.abs(Y))
+
         if (Math.abs(X) > Math.abs(Y) && X > 0) {// right
             this.callback(DIRECTION.Right)
         }
