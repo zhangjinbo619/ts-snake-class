@@ -4,7 +4,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 // webpack 所有配置信息
 module.exports = {
-    mode: 'production', //development |  production
+    mode: 'development', //development |  production
     devtool: "cheap-module-source-map",
     target: 'web',
     context: __dirname + '/src',
@@ -90,7 +90,8 @@ module.exports = {
         }),
     ],
     devServer: {
-        port: 3000
+        port: 3000,
+        allowedHosts: "all",
     },
     //用来设置应用模块
     resolve: {
