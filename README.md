@@ -1,6 +1,7 @@
 # ts-snake-class
  
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/zhangjinbo619/ts-snake-class) 
+[![Build Status](https://app.travis-ci.com/zhangjinbo619/ts-snake-class.svg?branch=main)](https://app.travis-ci.com/zhangjinbo619/ts-snake-class)
 
 TypeScript class api 版本贪吃蛇，供学习交流,使用 TS + less + webpack + eslint
  
