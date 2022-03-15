@@ -15,6 +15,7 @@ declare class GameControl {
     touchHandler: (dire: string) => void;
     keydownHandler: (event: KeyboardEvent) => void;
     run: () => void;
+    reStart(): void;
     checkEat(X: number, Y: number): void;
 }
 export default GameControl;

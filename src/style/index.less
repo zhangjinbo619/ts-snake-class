@@ -9,7 +9,8 @@
   box-sizing: border-box;
 }
 
-html,body {
+html,
+body {
   height: 100%;
 }
 body {
@@ -71,5 +72,28 @@ body {
     width: 300px;
     display: flex;
     justify-content: space-between;
+  }
+  //提示框
+}
+
+#alert {
+  display: flex;
+  position: absolute;
+  font-size: 18px;
+  width: 280px;
+  height: 80px;
+  visibility: hidden;
+  background-color: rgb(202, 207, 197);
+  border: 2px solid black;
+  border-radius: 5px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 5px 5px;
+  .buttons {
+    .ok {
+      width: 90px;
+      font: bold 18px "Courier";
+    }
   }
 }

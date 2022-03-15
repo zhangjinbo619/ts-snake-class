@@ -131,9 +131,10 @@
       "*": [
         "src/*"
       ]
-    }
+    },
   },
   "include": [
+    "./global.d.ts",
     "./src/**/*"
   ],
   "exclude": [

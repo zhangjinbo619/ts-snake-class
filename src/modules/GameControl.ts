@@ -3,6 +3,8 @@ import Food from "./Food";
 import SourcePanel from "./SourcePanel";
 import Gesture from "../common/Gesture";
 import Utils from "../common/Utils";
+import { RESULT } from "../common/Enum";
+import Alert from "./Alert";
 enum DIRECTION {
   ArrowUp = "ArrowUp",
   Up = "Up",
@@ -113,7 +115,10 @@ class GameControl {
     } catch (error) {
       //ts 异常类型收敛处理
       if (error instanceof Error) {
-        alert(error.message);
+        Alert.show(error.message, (result: TYPE_RESULT) => {
+          result === RESULT.SUCCESS && this.reStart();
+        })
+        // alert(error.message);
       }
       this.isLive = false;
     }
@@ -122,6 +127,10 @@ class GameControl {
     this.isLive &&
       setTimeout(this.run, 300 - (this.scorcePanel.level - 1) * 30);
   };
+  //游戏重新开始
+  reStart() {
+    window.location.href = window.location.href;
+  }
   //检测蛇是否吃到食物
   checkEat(X: number, Y: number) {
     if (X === this.food.X && Y === this.food.Y) {
